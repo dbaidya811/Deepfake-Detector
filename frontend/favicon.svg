@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#g)"/>
+  <!-- Simple eye + play triangle to hint "detect + media" -->
+  <circle cx="32" cy="28" r="10" fill="#052e16" opacity="0.2"/>
+  <circle cx="32" cy="28" r="6" fill="#052e16"/>
+  <circle cx="32" cy="28" r="3" fill="#22c55e"/>
+  <path d="M24 42 L24 54 L36 48 Z" fill="#052e16" opacity="0.85"/>
+</svg>

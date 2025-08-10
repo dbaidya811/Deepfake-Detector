@@ -1,0 +1,29 @@
+# GPU Dockerfile (NVIDIA)
+FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# System deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 python3-pip python3-venv \
+    ffmpeg libsndfile1 libgl1 ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+# Optional: create venv
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+# Use NVIDIA runtime via --gpus all
+CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8000"]
