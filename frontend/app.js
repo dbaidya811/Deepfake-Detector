@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = "https://deepfake-detector-z4no.onrender.com";
 
 const fileInput = document.getElementById("fileInput");
 const preview = document.getElementById("preview");
