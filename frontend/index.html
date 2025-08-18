@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI vs Original Image Detector</title>
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AI vs Original Image Detector</h1>
+        <p>Upload an image to get a heuristic assessment. This is not 100% accurate.</p>
+      </header>
+
+      <section class="upload">
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept="image/*" />
+          <label for="fileInput">Click or drop an image here</label>
+        </div>
+        <img id="preview" alt="preview" />
+        <button id="analyzeBtn" disabled>Analyze</button>
+      </section>
+
+      <section class="result" id="result" hidden>
+        <h2>Result</h2>
+        <div id="summary" class="summary"></div>
+        <div class="details">
+          <h3>Reasons</h3>
+          <ul id="reasons"></ul>
+          <h3>Features</h3>
+          <pre id="features"></pre>
+        </div>
+      </section>
+
+      <footer>
+        <small>
+          Built with FastAPI. Heuristic only. For sensitive use-cases, rely on
+          specialized detectors.
+        </small>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
